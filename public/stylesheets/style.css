@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "primary-closia";
+  src: url("/fonts/closia-closia-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "secondary-twisted-candy";
+  src: url("/fonts/twisted-candy-twisted-candy-svg-400.otf") format("Opentype");
+}
+
+body {
+  padding: 50px;
+  background-image: url("../images/psychedelic-paper-shapes-with-copy-space.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.card {
+  font-family: 'secondary-twisted-candy';
+  width: 40%;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 10px;
+  background-image: url("../images/undraw_articles.png");
+  background-repeat: no-repeat;
+  background-size: auto auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #333;
+  font-family: "primary-closia";
+  font-size: 14px;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+} 
+
+table th {
+  background-color: #335cc3;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+table tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+table tr:hover td {
+  background-color: #335cc3;
+}
+
+table td {
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
+label {
+  font-family: "primary-closia";
+}
+
+input[type=text] {
+  border-radius: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  border-radius: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  border-radius: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=text]:focus {
+  background-color: #335cc3;
+}
+
+h1 {
+  font-family: 'secondary-twisted-candy'
+}
+
+p {
+  font-family: "primary-closia";
+}
+
+button {
+  border-radius: 10px;
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}

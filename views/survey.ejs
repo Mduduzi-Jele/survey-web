@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Survey Form</h1>
+
+    <form
+      action="http://localhost:3000/survey/submission"
+      method="POST"
+      onsubmit="return validateForm()"
+    >
+      <label for="surname">Surname:</label>
+      <br />
+      <input
+        class="input"
+        type="text"
+        id="surname"
+        name="surname"
+        required
+      /><br />
+
+      <label for="firstNames">First Names:</label>
+      <br />
+      <input
+        class="input"
+        type="text"
+        id="firstNames"
+        name="firstNames"
+        required
+      /><br />
+
+      <label for="contactNumber">Contact Number:</label>
+      <br />
+      <input
+        class="input"
+        type="text"
+        id="contactNumber"
+        name="contactNumber"
+        required
+      /><br />
+
+      <label for="date">Date:</label>
+      <br />
+      <input class="input" type="date" id="date" name="date" required /><br />
+
+      <label for="age">Age:</label>
+      <br />
+      <input class="input" type="text" id="age" name="age" required /><br />
+
+      <br />
+
+      <label
+        >What is your favourite food? (You can choose more than 1 answer)</label
+      ><br />
+      <input type="checkbox" id="pizza" name="food" value="Pizza" />
+      <label for="pizza">Pizza</label><br />
+
+      <input type="checkbox" id="pasta" name="food" value="Pasta" />
+      <label for="pasta">Pasta</label><br />
+
+      <input type="checkbox" id="papWors" name="food" value="Pap and Wors" />
+      <label for="papWors">Pap and Wors</label><br />
+
+      <input
+        type="checkbox"
+        id="chickenStirFry"
+        name="food"
+        value="Chicken stir fry"
+      />
+      <label for="chickenStirFry">Chicken stir fry</label><br />
+
+      <input
+        type="checkbox"
+        id="beefStirFry"
+        name="food"
+        value="Beef stir fry"
+      />
+      <label for="beefStirFry">Beef stir fry</label><br />
+
+      <input type="checkbox" id="other" name="food" value="Other" />
+      <label for="other">Other</label><br />
+
+      <br />
+
+      <table id="surveyTable">
+        <tr>
+          <th></th>
+          <th>Strongly Agree (1)</th>
+          <th>Agree (2)</th>
+          <th>Neutral (3)</th>
+          <th>Disagree (4)</th>
+          <th>Strongly Disagree (5)</th>
+        </tr>
+        <tr>
+          <td>I like to eat out</td>
+          <td><input type="radio" name="eatOut" value="1" /></td>
+          <td><input type="radio" name="eatOut" value="2" /></td>
+          <td><input type="radio" name="eatOut" value="3" /></td>
+          <td><input type="radio" name="eatOut" value="4" /></td>
+          <td><input type="radio" name="eatOut" value="5" /></td>
+        </tr>
+        <tr>
+          <td>I like to watch movies</td>
+          <td><input type="radio" name="watchMovies" value="1" /></td>
+          <td><input type="radio" name="watchMovies" value="2" /></td>
+          <td><input type="radio" name="watchMovies" value="3" /></td>
+          <td><input type="radio" name="watchMovies" value="4" /></td>
+          <td><input type="radio" name="watchMovies" value="5" /></td>
+        </tr>
+        <tr>
+          <td>I like to watch TV</td>
+          <td><input type="radio" name="watchTV" value="1" /></td>
+          <td><input type="radio" name="watchTV" value="2" /></td>
+          <td><input type="radio" name="watchTV" value="3" /></td>
+          <td><input type="radio" name="watchTV" value="4" /></td>
+          <td><input type="radio" name="watchTV" value="5" /></td>
+        </tr>
+        <tr>
+          <td>I like to listen to the radio</td>
+          <td><input type="radio" name="listenRadio" value="1" /></td>
+          <td><input type="radio" name="listenRadio" value="2" /></td>
+          <td><input type="radio" name="listenRadio" value="3" /></td>
+          <td><input type="radio" name="listenRadio" value="4" /></td>
+          <td><input type="radio" name="listenRadio" value="5" /></td>
+        </tr>
+      </table>
+
+      <br />
+
+      <input class="input" type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function validateForm() {
+        var surname = document.getElementById("surname").value;
+        var firstNames = document.getElementById("firstNames").value;
+        var contactNumber = document.getElementById("contactNumber").value;
+        var date = document.getElementById("date").value;
+        var age = document.getElementById("age").value;
+
+        if (
+          surname === "" ||
+          firstNames === "" ||
+          contactNumber === "" ||
+          date === "" ||
+          age === ""
+        ) {
+          alert("Please fill in all the required fields.");
+          return false;
+        }
+
+        if (age < 5 || age > 120) {
+          alert("Please enter a valid age between 5 and 120.");
+          return false;
+        }
+
+        // Validate contact number
+        var contactNumberRegex = /^\d{10}$/;
+        if (!contactNumberRegex.test(contactNumber)) {
+          alert("Please enter a 10-digit contact number.");
+          return false;
+        }
+
+        var table = document.getElementById("surveyTable");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 1; i < rows.length; i++) {
+          var row = rows[i];
+          var radioButtons = row.getElementsByTagName("input");
+          var isRadioSelected = false;
+
+          for (var j = 0; j < radioButtons.length; j++) {
+            if (radioButtons[j].checked) {
+              isRadioSelected = true;
+              break;
+            }
+          }
+
+          if (!isRadioSelected) {
+            alert("Please select an option in each row of the table.");
+            return false;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submission</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <h1><%= status %></h1>
+
+    <script>
+      function redirectToHomePage() {
+        setTimeout(function () {
+          window.location.href = "http://localhost:3000/";
+        }, 5000);
+      }
+
+      redirectToHomePage()
+    </script>
+  </body>
+</html>

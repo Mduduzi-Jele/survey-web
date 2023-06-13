@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>Savey</title>
+  </head>
+  <body>
+    <div class="card" onclick="redirectToSurvey()">Fill out survey</div>
+    <br />
+    <div class="card" onclick="redirectToResults()">Survey results</div>
+
+    <script>
+      function redirectToSurvey() {
+        window.location.href = "http://localhost:3000/survey";
+      }
+
+      function redirectToResults() {
+        window.location.href = "http://localhost:3000/results";
+      }
+    </script>
+  </body>
+</html>
